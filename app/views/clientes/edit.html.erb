@@ -1,0 +1,30 @@
+<h3>Editar Cliente</h3>
+
+<%= form_for :cliente, url: cliente_path(@cliente), method: :patch do |f| %>
+
+<% if @cliente.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@cliente.errors.count, 'erro') %> proibe que o cliente seja salvo: </h2>
+
+		<ul>
+			<% @cliente.errors.full_messages.each do |msg| %>
+			<li><%=msg%></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<p>
+	<%= f.label :nome	%><br>
+	<%= f.text_field :nome	%>
+</p>
+<p>
+	<%= f.label :email	%><br>
+	<%= f.text_field :email	%>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>
+
+<%= link_to 'Voltar', clientes_path %>

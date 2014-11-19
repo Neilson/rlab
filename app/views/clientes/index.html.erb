@@ -1,0 +1,26 @@
+<h3>Clientes</h3>
+
+<%= link_to 'Novo Cliente', new_cliente_path %>
+
+<table border='1'>
+	<tr>
+		<th>Nome</th>
+		<th>E-mail</th>
+		<th>...</th>
+	</tr>
+
+
+<% @clientes.each do |cliente| %>
+<tr>
+	<td><%= cliente.nome %></td>
+	<td><%= cliente.email %></td>
+	<td>
+		<%= link_to 'Ver', cliente_path(cliente) %> |
+		<%= link_to 'Editar', edit_cliente_path(cliente) %> |
+		<%= link_to 'Excluir', cliente_path(cliente), method: :delete, data: {confirm: 'Quer mesmo excluir esse cliente?'} %>
+	</td>
+</tr>
+<% end %>
+</table>
+
+<%= will_paginate @clientes %>

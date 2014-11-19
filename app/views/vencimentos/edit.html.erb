@@ -1,0 +1,23 @@
+<h3>Cadastrar Vencimento</h3>
+
+<%= form_for :vencimento, url: vencimento_path(@vencimento), method: :patch do |f|%>
+
+<p>
+	<%= f.label :cliente %><br>
+	<%= collection_select(:vencimento, :cliente_id, Cliente.all, :id, :nome) %>
+</p>
+
+<p>
+	<%= f.label :valor %><br>
+	<%= f.text_field :valor %>
+</p>
+
+<p>
+	<%= f.label :dia %><br>
+	<%= f.text_field :dia %>
+</p>
+
+<p>
+	<%= f.submit  %>
+</p>
+<% end %>

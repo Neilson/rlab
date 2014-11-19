@@ -1,0 +1,26 @@
+<h3>Vencimentos</h3>
+
+<%= link_to 'Novo Vencimento', new_vencimento_path %>
+
+<table border='1'>
+	<tr>
+		<th>Cliente</th>
+		<th>Dia</th>
+		<th>Valor</th>
+		<th>...</th>
+	</tr>
+
+
+<% @vencimentos.each do |vencimento| %>
+<tr>
+	<td><%= vencimento.cliente %></td>
+	<td><%= vencimento.dia %></td>
+	<td><%= vencimento.valor %></td>
+	<td>
+		<%= link_to 'Ver', vencimento_path(vencimento) %> |
+		<%= link_to 'Editar', edit_vencimento_path(vencimento) %> |
+		<%= link_to 'Excluir', vencimento_path(vencimento), method: :delete, data: {confirm: 'Quer mesmo excluir esse cliente?'} %>
+	</td>
+</tr>
+<% end %>
+</table>
