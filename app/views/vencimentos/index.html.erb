@@ -13,7 +13,7 @@
 
 <% @vencimentos.each do |vencimento| %>
 <tr>
-	<td><%= vencimento.cliente %></td>
+	<td><%= vencimento.cliente.nome if vencimento.cliente %></td>
 	<td><%= vencimento.dia %></td>
 	<td><%= vencimento.valor %></td>
 	<td>
